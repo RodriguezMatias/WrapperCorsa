@@ -1,0 +1,13 @@
+
+<table style="width:100%">
+  <tr>
+    <th>Pos</th>
+    <th>Nombre</th>
+    <th>Puntos</th>
+  </tr>
+  <tr *ngFor="let dato of datos.pos; index as i;">
+    <td>{{datos.puntos[i]}}</td>
+    <td>{{datos.nombre[i]}}</td> 
+    <td>{{datos.pos[i]}}</td>
+  </tr>
+</table>
