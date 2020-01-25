@@ -17,6 +17,7 @@ export class AppComponent {
   constructor(private datosService : DatosService){}
   title = 'wrapper-web';
   datos : Datos;
+  private champName = "Copa Corvette c6r";
 
   ngOnInit(){
      this.datosService.getAllDatos().subscribe(val => this.datos = val);

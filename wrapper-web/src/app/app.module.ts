@@ -9,7 +9,7 @@ import {DatosService} from './services/datos.service';
 import { HttpClient } from '@angular/common/http';
 
 import { HttpClientModule } from '@angular/common/http';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent
@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgbModule
   ],
   providers: [
     DatosService,

@@ -33,12 +33,18 @@ Http.onreadystatechange = (e) => {
   let continuar = true;
   $('tr > td').each(function (i, e) {
        let selection = $(this).toString();
-       selection = selection.replace(/\s/g, '');
-       selection = selection.replace(/^\s+|\s+$/g, '');
-       selection = selection.replace(/td/g, '');
-       selection = selection.replace(/\//g,'');
-       selection = selection.replace(/</g,'');
-       selection = selection.replace(/>/g,'');
+      //  selection = selection.replace(/\s/g, '');
+      //  selection = selection.replace(/^\s+|\s+$/g, '');
+      //  selection = selection.replace(/td/g, '');
+      //  selection = selection.replace(/\//g,'');
+      //  selection = selection.replace(/</g,'');
+      //  selection = selection.replace(/>/g,'');
+     
+       selection = selection.replace(/<\/td>/g,'');
+       selection = selection.replace(/<td>/g,'');
+       selection = selection.replace(/^\s+|\s+$|\s+(?=\s)/g,'');
+       
+
        if (selection.includes("spandata-toggle")){
         continuar = false; 
        }   
@@ -54,12 +60,24 @@ Http.onreadystatechange = (e) => {
 
   //console.log(hobbies);
 
-  
-  for (var i = 0; i < hobbies.length; i++) {
-
-      puntos[i] = hobbies.shift(); ;
+  let continuaCarga = true;
+  let posicionActual = 0;
+  let poscionAnterior = 0;
+   for (var i = 0; i < hobbies.length; i++) {
+    //for (var i = 0; i < 22; i++) {
+      posicionActual = hobbies.shift();
+      if(posicionActual < poscionAnterior){
+        continuaCarga = false;
+      }
+      else{
+        poscionAnterior++;
+      }  
+      if(continuaCarga){ 
+      pos[i] = posicionActual ;
       nombre[i] = hobbies.shift(); ;
-      pos[i] = hobbies.shift(); ;
+      puntos[i] = hobbies.shift(); ;
+    }
+  
   }
 }
 
