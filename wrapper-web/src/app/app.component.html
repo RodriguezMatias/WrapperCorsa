@@ -1,60 +1,27 @@
-<!-- 
-<table style="width:100%">
-  <tr>
-    <th>Pos</th>
-    <th>Nombre</th>
-    <th>Puntos</th>
-  </tr>
-  <tr *ngFor="let dato of datos.pos; index as i;">
-    <td>{{datos.puntos[i]}}</td>
-    <td>{{datos.nombre[i]}}</td> 
-    <td>{{datos.pos[i]}}</td>
-  </tr>
-</table> -->
 
-<!-- <div class="container">
-  <div class="row">
-    <div class="col-md-2">Pos</div>
-    <div class="col-md-4">Nombre</div>
-    <div class="col-md-4">Puntos</div>
-  </div>
-  <div class="row" *ngFor="let dato of datos.pos; index as i;">
-    <div class="col-md-2">{{datos.puntos[i]}}</div>
-    <div class="col-md-4">{{datos.nombre[i]}}</div>
-    <div class="col-md-4">{{datos.pos[i]}}</div>
-  </div>
-</div> -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">WillySistems</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="" routerLinkActive="router-link-active">Inicio<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="cargarCampeonato" routerLinkActive="router-link-active">Tablas De campeonato</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled">Sistema de clases</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+    </form>
+  </div>
+</nav>
 
-<div class="container">
-  <div class="row">
-    <h1>{{champName}} <span class="badge badge-secondary">Clase A</span></h1>
-  </div>
-  <div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-10">
-      <table class="table table-striped table-dark table-sm mh-100">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Puntos</th>
-          </tr>
-        </thead>
-        <tbody class="bodytabla">
-          <tr *ngFor="let dato of datos.pos; index as i;">
-            <td>
-               <!-- <img [src]="'https://upload.wikimedia.org/wikipedia/commons/Argentina'" class="mr-2" style="width: 20px">  -->
-              {{datos.pos[i]}}
-            </td>
-            <td>{{datos.nombre[i]}}</td>
-            <td>{{datos.puntos[i]}}</td>
-          </tr>
-        </tbody>
-      </table>
-      
-    </div>
-    <div class="col-md-1"></div>
-   
-  </div>
-</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,60 @@
+<!-- 
+<table style="width:100%">
+  <tr>
+    <th>Pos</th>
+    <th>Nombre</th>
+    <th>Puntos</th>
+  </tr>
+  <tr *ngFor="let dato of datos.pos; index as i;">
+    <td>{{datos.puntos[i]}}</td>
+    <td>{{datos.nombre[i]}}</td> 
+    <td>{{datos.pos[i]}}</td>
+  </tr>
+</table> -->
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-md-2">Pos</div>
+    <div class="col-md-4">Nombre</div>
+    <div class="col-md-4">Puntos</div>
+  </div>
+  <div class="row" *ngFor="let dato of datos.pos; index as i;">
+    <div class="col-md-2">{{datos.puntos[i]}}</div>
+    <div class="col-md-4">{{datos.nombre[i]}}</div>
+    <div class="col-md-4">{{datos.pos[i]}}</div>
+  </div>
+</div> -->
+
+
+<div class="container">
+    <div class="row">
+      <h1>{{champName}} <span class="badge badge-secondary">Clase A</span></h1>
+    </div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <table class="table table-striped table-dark table-sm mh-100">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Puntos</th>
+            </tr>
+          </thead>
+          <tbody class="bodytabla">
+            <tr *ngFor="let dato of datos.pos; index as i;">
+              <td>
+                 <!-- <img [src]="'https://upload.wikimedia.org/wikipedia/commons/Argentina'" class="mr-2" style="width: 20px">  -->
+                {{datos.pos[i]}}
+              </td>
+              <td>{{datos.nombre[i]}}</td>
+              <td>{{datos.puntos[i]}}</td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+      <div class="col-md-1"></div>
+     
+    </div>
+  </div>

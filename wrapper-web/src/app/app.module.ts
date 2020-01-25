@@ -10,9 +10,18 @@ import { HttpClient } from '@angular/common/http';
 
 import { HttpClientModule } from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { TablaComponent } from './tabla/tabla.component';
+import { Routes, RouterModule } from '@angular/router';
+import { CargarCampeonatoComponent } from './cargar-campeonato/cargar-campeonato.component';
+import { HomeComponent } from './home/home.component';
+
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TablaComponent,
+    CargarCampeonatoComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
