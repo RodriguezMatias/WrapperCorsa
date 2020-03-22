@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row paralelogramo" id="parallelogram" >
+    <div class="col-md-4 blanco">
+      <div class="col-md-1 nopadding"><img id="categorialogo" src="../../assets/gt3logo.png"></div>
+    </div>
+    <div class="col-md-8 gris">
+      <div class="row">
+        <h1 id="textotablaposiciones">TABLA DE POSICIONES</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-11">
+          <h2 id="textotablaposiciones">Fecha 1</h2>
+        </div>
+        <div class="col-md-1 nopadding"><img id="ilslogo" src="../../assets/Blanco.png"></div>
+      </div>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <table class="table borderless ">
+          <thead>
+          </thead>
+          <tbody id="texto">
+            <tr *ngFor="let dato of datos.pos; index as i;">
+              <td>
+                {{datos.pos[i]}}
+              </td>
+              <td>
+                <!-- ver esto para distintos paises -->
+                <img [src]="'https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Argentina.svg'" class="mr-2"
+                  style="width: 20px">
+                {{datos.nombre[i]}}
+              </td>
+              <td>{{datos.equipo[i]}}</td>
+              <td>{{datos.puntos[i]}} Puntos</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+  </div>

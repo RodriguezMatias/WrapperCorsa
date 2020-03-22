@@ -1,0 +1,71 @@
+
+.container{
+  background: url("../../assets/fondo.jpg");
+  background-repeat: no-repeat;
+  background-size: 1125px 2162px;
+
+}
+
+#parallelogram {
+  width: 90%;
+  height: 93px;
+  transform: skew(-18deg);
+}
+.paralelogramo{
+  padding-top: 10px;
+  margin: 15px 5% 20px 5%;
+  .blanco{
+    background: white;
+    #categorialogo{
+      transform: skew(18deg) !important;
+     
+    }
+  }
+  .gris{
+    background:#535353;
+
+    #textotablaposiciones{
+      transform: skew(18deg) !important;
+      margin-left: 10px;
+      color: white;
+    }
+
+    #ilslogo{
+      transform: skew(18deg) !important;
+      width: 6vh;
+      padding-right: 14px;
+      padding-top: 10px;
+    }
+    .nopadding {
+      padding: 0 !important;
+      margin: 0 !important;
+   }
+  }
+}
+
+
+.tabladeposiciones{
+  width: 90%;
+  margin: 10px 5% 10px 5%;
+}
+
+.borderless td, .borderless th {
+  border: none;
+}
+
+#texto{
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 30px !important;
+}
+
+tr
+{
+    line-height:30px;
+    background-color: white;
+    padding-bottom: 1em;
+}
+
+table{
+  border-collapse:separate; 
+  border-spacing:7px;
+}
