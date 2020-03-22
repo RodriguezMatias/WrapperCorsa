@@ -14,6 +14,7 @@ import { TablaComponent } from './tabla/tabla.component';
 import { Routes, RouterModule } from '@angular/router';
 import { CargarCampeonatoComponent } from './cargar-campeonato/cargar-campeonato.component';
 import { HomeComponent } from './home/home.component';
+import { TablaV2Component } from './tabla-v2/tabla-v2.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { HomeComponent } from './home/home.component';
     AppComponent,
     TablaComponent,
     CargarCampeonatoComponent,
-    HomeComponent
+    HomeComponent,
+    TablaV2Component
   ],
   imports: [
     BrowserModule,

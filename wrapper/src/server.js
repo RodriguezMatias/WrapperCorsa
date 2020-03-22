@@ -13,26 +13,33 @@ var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 
 const Http = new XMLHttpRequest();
-const url = 'http://vps1.ils.simracer.com.ar:8773/championship/8890ecb2-9ba1-44d7-96ab-77b7b615709d';
+//  const url = 'http://vps1.ils.simracer.com.ar:8773/championship/8890ecb2-9ba1-44d7-96ab-77b7b615709d';
+  const url = 'http://vps1.ils.simracer.com.ar:8773/championship/bf5b50c3-83c4-4aee-aa0b-e67dae515dc2';
 
 Http.open("GET", url);
 Http.send();
 
 let pos = [];
   let nombre = [];
+  let equipo = [];
   let puntos = [];
 
 Http.onreadystatechange = (e) => {
 
   let $ = cheerio.load(Http.responseText);
 
+ // console.log(Http.responseText);
   // console.log(title.text());
 
   let hobbies = [];
 
+
   let continuar = true;
-  $('tr > td').each(function (i, e) {
+   $('tr > td').each(function (i, e) {
+    //console.log("$",$.html());
+    //$(this).find('td').each(function (i, e) {
        let selection = $(this).toString();
+       //console.log("seleccion",selection);
       //  selection = selection.replace(/\s/g, '');
       //  selection = selection.replace(/^\s+|\s+$/g, '');
       //  selection = selection.replace(/td/g, '');
@@ -74,8 +81,9 @@ Http.onreadystatechange = (e) => {
       }  
       if(continuaCarga){ 
       pos[i] = posicionActual ;
-      nombre[i] = hobbies.shift(); ;
-      puntos[i] = hobbies.shift(); ;
+      nombre[i] = hobbies.shift();
+      equipo[i] = hobbies.shift();
+      puntos[i] = hobbies.shift();
     }
   
   }
@@ -100,15 +108,18 @@ app.listen(8000, () => {
   var respuesta = {
     pos,
     nombre,
+    equipo,
     puntos
   }
   respuesta.pos = pos;
   respuesta.nombre = nombre;
+  respuesta.equipo = equipo;
   respuesta.puntos = puntos;
   app.route('/api/datos').get((req, res) => {
     res.send({
       pos,
       nombre,
+      equipo,
       puntos
     })
   })
