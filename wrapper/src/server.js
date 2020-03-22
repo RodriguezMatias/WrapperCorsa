@@ -50,7 +50,9 @@ Http.onreadystatechange = (e) => {
        selection = selection.replace(/<\/td>/g,'');
        selection = selection.replace(/<td>/g,'');
        selection = selection.replace(/^\s+|\s+$|\s+(?=\s)/g,'');
-       
+
+       //para Lucas O´Neille
+       selection = selection.replace(/&apos;/g,' ');
 
        if (selection.includes("spandata-toggle")){
         continuar = false; 
