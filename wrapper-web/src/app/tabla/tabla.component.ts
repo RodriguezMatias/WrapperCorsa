@@ -13,9 +13,10 @@ export class TablaComponent implements OnInit {
   title = 'wrapper-web';
   datos : Datos;
   private champName = "Copa Corvette c6r";
+  public url: string;
 
   ngOnInit(){
-     this.datosService.getAllDatos().subscribe(val => this.datos = val);
+     this.datosService.getAllDatos(this.url).subscribe(val => this.datos = val);
     //console.log("datos", this.datosService.getAllDatos());
   }
 

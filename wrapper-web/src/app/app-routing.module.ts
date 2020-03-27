@@ -9,7 +9,7 @@ import { TablaV2Component } from './tabla-v2/tabla-v2.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'tabla', component: TablaComponent },
-  { path: 'tablav2', component: TablaV2Component },
+  { path: 'tablav2/:categoria/:numerofecha', component: TablaV2Component },
   { path: 'cargarCampeonato', component: CargarCampeonatoComponent }
 ];
 

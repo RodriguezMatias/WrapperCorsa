@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DatosService, Datos } from '../services/datos.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-tabla-v2',
@@ -8,15 +9,32 @@ import { DatosService, Datos } from '../services/datos.service';
 })
 export class TablaV2Component implements OnInit {
 
-  constructor(private datosService : DatosService) { }
+  constructor(private datosService : DatosService,private route: ActivatedRoute) { }
 
   title = 'wrapper-web';
   datos : Datos;
-  private champName = "VRacer GT3 Open Seriesr";
+  private champName = "VRacer GT3 Open Series";
+  public url : string;
+  public categoria ;
+  public numerofecha ; 
 
   ngOnInit(){
-     this.datosService.getAllDatos().subscribe(val => this.datos = val);
-    //console.log("datos", this.datosService.getAllDatos());
+    console.log(this.route);
+    this.route.params.subscribe(params => {
+       this.categoria = params['categoria'];
+       this.numerofecha = params['numerofecha'];
+      console.log(this.categoria);
+    //gt3
+    if(this.categoria == 'gt3'){
+      this.url='http://vps1.ils.simracer.com.ar:8773/championship/bf5b50c3-83c4-4aee-aa0b-e67dae515dc2';
+    }
+    if(this.categoria == 'gt4'){
+    //gt4
+    this.url='http://vps1.ils.simracer.com.ar:8774/championship/e9fdfdcb-a6d6-41f4-92a7-3c354443e975';
+  }
+  });
+    console.log(this.url);
+     this.datosService.getAllDatos(this.url).subscribe(val => this.datos = val);
   }
 
 }

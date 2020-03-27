@@ -1,4 +1,7 @@
-<div class="container">
+<div class="container" *ngIf="loading">
+  <div class="loader">Loading...</div>
+</div>
+<div class="container" *ngIf="!loading">
     <div class="row">
       <div class="col-md-2"></div>
       <div class="col-md-8">
@@ -7,7 +10,7 @@
       <div class="col-md-2"></div>
     </div>
     
-    <div formGroupName="address">
+    <!-- <div formGroupName="address">
       <h3>Nuevo campeonato:(Mock)</h3>
     
       <label>
@@ -29,28 +32,29 @@
         Link:
         <input type="text" formControlName="zip">
       </label>
-    </div>
+    </div> -->
 
       <div class="row">
           <div class="col-md-2"></div>
           <div class="col-md-8">
-            <h2>Seleccione de la siguiente tabla (Mock)</h2>
-            <div class="card">
-                <h5 class="card-header">Assetto Corsa Tabla v1</h5>
-                <div class="card-body">
-                  <h5 class="card-title">Campeonato C6R</h5>
-                  <p class="card-text">Descripcion del campeonato ...</p>
-                  <a routerLink="/tabla" routerLinkActive="router-link-active" class="btn btn-primary">Ir a la tabla</a>
-                </div>
-              </div>
+            <h2>Seleccione de la siguiente tabla</h2>
+            <input type="text" text-right maxLength="2" placeholder="Ingrese numero de carrera aqui" [(ngModel)]="numerocarrera">
               <div class="card">
-                <h5 class="card-header">Assetto Corsa Tabla v2</h5>
+                <h5 class="card-header">Gt3</h5>
                 <div class="card-body">
-                  <h5 class="card-title">Campeonato Vracer Gt3 Open Series</h5>
-                  <p class="card-text">Descripcion del campeonato ...</p>
-                  <a routerLink="/tablav2" routerLinkActive="router-link-active" class="btn btn-primary">Ir a la tabla</a>
+                  <p class="card-text">http://vps1.ils.simracer.com.ar:8773/championship/bf5b50c3-83c4-4aee-aa0b-e67dae515dc2</p>
+                  <a [routerLink]="['/tablav2', 'gt3' , numerocarrera]" routerLinkActive="router-link-active" class="btn btn-primary">Ir a la tabla</a>
+                  <!-- <a routerLink="/tablav2" routerLinkActive="router-link-active" class="btn btn-primary">Editar (mock)</a> -->
                 </div>
               </div>  
+              <div class="card">
+                <h5 class="card-header">Gt4</h5>
+                <div class="card-body">
+                  <p class="card-text">http://vps1.ils.simracer.com.ar:8774/championship/e9fdfdcb-a6d6-41f4-92a7-3c354443e975</p>
+                  <a [routerLink]="['/tablav2', 'gt4' , numerocarrera]" routerLinkActive="router-link-active" class="btn btn-primary">Ir a la tabla</a>
+                  <!-- <a routerLink="/tablav2" routerLinkActive="router-link-active" class="btn btn-primary">Editar (mock)</a> -->
+                </div>
+              </div>                  
           </div>
           <div class="col-md-2"></div>
       </div>

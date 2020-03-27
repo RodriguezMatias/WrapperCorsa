@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpParams } from '@angular/common/http'
 
 export interface Datos {
   pos : [];
@@ -8,12 +8,23 @@ export interface Datos {
   puntos: [];
 }
 
+export interface ServerData{
+  url: string;
+  serverName: string;
+}
+
 @Injectable()
 export class DatosService {
   constructor(private http: HttpClient) {}
 
-  getAllDatos(): Observable<Datos> {
-    return this.http.get<Datos>('http://localhost:8000/api/datos')
+  getAllDatos(url:string): Observable<Datos> {
+    let params = new HttpParams().set("url",url); //Create new HttpParams
+    return this.http.get<Datos>('http://localhost:8000/api/datos',{params: params})
+  }
+  
+
+  getServerData(): Observable<ServerData> {
+    return this.http.get<ServerData>('http://localhost:8000/api/serverdata')
   }
 
   // getCat(name: string): Observable<Cat> {

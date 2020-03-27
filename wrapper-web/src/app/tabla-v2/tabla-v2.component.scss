@@ -8,17 +8,15 @@
 
 #parallelogram {
   width: 90%;
-  height: 93px;
   transform: skew(-18deg);
 }
 .paralelogramo{
-  padding-top: 10px;
-  margin: 15px 5% 20px 5%;
+  padding-top: 20px;
+  margin: 0 5% 20px 5%;
   .blanco{
     background: white;
     #categorialogo{
       transform: skew(18deg) !important;
-     
     }
   }
   .gris{
@@ -33,7 +31,8 @@
     #ilslogo{
       transform: skew(18deg) !important;
       width: 10vh;
-      margin: -35px -6px 0;
+      margin: -35px -6px 0 0;
+      padding: 15px;
     }
     .nopadding {
       padding: 0 !important;

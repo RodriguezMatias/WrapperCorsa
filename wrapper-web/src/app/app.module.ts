@@ -15,6 +15,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CargarCampeonatoComponent } from './cargar-campeonato/cargar-campeonato.component';
 import { HomeComponent } from './home/home.component';
 import { TablaV2Component } from './tabla-v2/tabla-v2.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -24,12 +25,14 @@ import { TablaV2Component } from './tabla-v2/tabla-v2.component';
     CargarCampeonatoComponent,
     HomeComponent,
     TablaV2Component
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [
     DatosService,
