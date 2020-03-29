@@ -16,38 +16,27 @@ let nombrerF2 = [];
 let puntosrF2 = [];
 
 //rF2 related START
-
-'use strict';
-let jsonData = require('./rf2.json');
-var i = 1;
-while (jsonData["Class Overall"]["Driver Standings"]["drivers"][i] != null){
-  posrF2.push(i);
-  nombrerF2.push(jsonData["Class Overall"]["Driver Standings"]["drivers"][i]["name"]);
-  puntosrF2.push(jsonData["Class Overall"]["Driver Standings"]["drivers"][i]["points_sum"]);
-  i++;
+function generartablarF2(){
+  'use strict';
+  let jsonData = require('./rf2.json');
+  var i = 1;
+  while (jsonData["Class Overall"]["Driver Standings"]["drivers"][i] != null){
+    posrF2.push(i);
+    nombrerF2.push(jsonData["Class Overall"]["Driver Standings"]["drivers"][i]["name"]);
+    puntosrF2.push(jsonData["Class Overall"]["Driver Standings"]["drivers"][i]["points_sum"]);
+    i++;
+  }
 }
-console.log(posrF2);
- console.log(jsonData["Class Overall"]["Driver Standings"]["drivers"]["20"]["name"]);
-// console.log(jsonData["Class Overall"]["Driver Standings"]["drivers"][i]["points_sum"]);
-
-
-
 //rF2 related END 
 
-
-//campeonato gt3
-const serverName = 'Gt3 Open Series';
-var url = 'http://vps1.ils.simracer.com.ar:8773/championship/bf5b50c3-83c4-4aee-aa0b-e67dae515dc2';
-
-
-
+var url = '';
 //definicion de arrays para devolver la data
 let pos = [];
 let nombre = [];
 let equipo = [];
 let puntos = [];
 
-function generarTabla(req, res) {
+function generarTabla() {
   Http.open("GET", url);
   Http.send();
   Http.onreadystatechange = (e) => {
@@ -119,6 +108,7 @@ app.listen(8000, () => {
 })
 
 
+//para ac
 app.route('/api/datos').get((req, res) => {
   url = req.query.url;
   generarTabla(req, res);
@@ -136,24 +126,14 @@ app.route('/api/datos').get((req, res) => {
 })
 
 //para rF2
-app.route('/api/datos/rF2').get((req, res) => {
-  res.send({
-    posrF2,
-    nombrerF2,
-    puntosrF2
-  })
-})
-
-app.route('/api/serverdata').get((req, res) => {
-  res.send({
-    url,
-    serverName
-  })
-})
-
-app.route('/api/serverdata').post((req, res) => {
-  res.send({
-    url,
-    serverName
-  })
-})
+ app.route('/api/datosrF2').get((req,res) => {
+  generartablarF2();
+   pos = posrF2;
+   nombre =  nombrerF2;
+   puntos =  puntosrF2;
+   res.send({
+     pos,
+     nombre,
+     puntos
+   })
+ })

@@ -22,6 +22,10 @@ export class DatosService {
     return this.http.get<Datos>('http://localhost:8000/api/datos',{params: params})
   }
   
+  getrF2Datos(): Observable<Datos> {
+    let params = new HttpParams(); //Create new HttpParams
+    return this.http.get<Datos>('http://localhost:8000/api/datosrF2')
+  }
 
   getServerData(): Observable<ServerData> {
     return this.http.get<ServerData>('http://localhost:8000/api/serverdata')

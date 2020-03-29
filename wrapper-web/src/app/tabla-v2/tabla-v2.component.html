@@ -4,6 +4,7 @@
       <div class="col-md-1 nopadding">
         <img id="categorialogo" *ngIf="categoria == 'gt3'" src="../../assets/gt3logo.png">
         <img id="categorialogo" *ngIf="categoria == 'gt4'" src="../../assets/gt4logo.png">
+        <img id="categorialogo" *ngIf="categoria == 'gt3cup'" src="../../assets/gt3cuplogo.png">
       </div>
     </div>
     <div class="col-md-8 gris">
@@ -34,7 +35,7 @@
                 <!-- <img [src]="'https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Argentina.svg'" class="mr-2" style="width: 20px"> -->
                 {{datos.nombre[i]}}
               </td>
-              <td id="textoequipos" >{{datos.equipo[i]}}</td>
+              <td id="textoequipos" *ngIf="categoria == 'gt3' || categoria == 'gt4' ">{{datos.equipo[i]}}</td>
               <td *ngIf="datos.puntos[i] != 1">{{datos.puntos[i]}} Pts</td>
               <td *ngIf="datos.puntos[i] == 1">{{datos.puntos[i]}} Pt</td>
             </tr>
