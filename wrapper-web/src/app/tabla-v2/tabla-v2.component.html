@@ -25,8 +25,8 @@
           <thead>
           </thead>
           <tbody id="texto">
-            <tr *ngFor="let dato of datos.pos; index as i;">
-              <td>
+            <tr *ngFor="let dato of datos.pos; index as i;"  id="onelinetext">
+              <td id="textoposiciones">
                 {{datos.pos[i]}}
               </td>
               <td>
@@ -34,8 +34,9 @@
                 <!-- <img [src]="'https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Argentina.svg'" class="mr-2" style="width: 20px"> -->
                 {{datos.nombre[i]}}
               </td>
-              <td>{{datos.equipo[i]}}</td>
-              <td>{{datos.puntos[i]}} Pts</td>
+              <td id="textoequipos" >{{datos.equipo[i]}}</td>
+              <td *ngIf="datos.puntos[i] != 1">{{datos.puntos[i]}} Pts</td>
+              <td *ngIf="datos.puntos[i] == 1">{{datos.puntos[i]}} Pt</td>
             </tr>
           </tbody>
         </table>

@@ -2,17 +2,38 @@
 const express = require('express');
 
 const app = express();
-
 const cors = require('cors');
-
 const cheerio = require('cheerio');
 const request = require('request');
 const http = require('http');
-
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-
-
 const Http = new XMLHttpRequest();
+
+
+
+let posrF2 = [];
+let nombrerF2 = [];
+let puntosrF2 = [];
+
+//rF2 related START
+
+'use strict';
+let jsonData = require('./rf2.json');
+var i = 1;
+while (jsonData["Class Overall"]["Driver Standings"]["drivers"][i] != null){
+  posrF2.push(i);
+  nombrerF2.push(jsonData["Class Overall"]["Driver Standings"]["drivers"][i]["name"]);
+  puntosrF2.push(jsonData["Class Overall"]["Driver Standings"]["drivers"][i]["points_sum"]);
+  i++;
+}
+console.log(posrF2);
+ console.log(jsonData["Class Overall"]["Driver Standings"]["drivers"]["20"]["name"]);
+// console.log(jsonData["Class Overall"]["Driver Standings"]["drivers"][i]["points_sum"]);
+
+
+
+//rF2 related END 
+
 
 //campeonato gt3
 const serverName = 'Gt3 Open Series';
@@ -27,7 +48,6 @@ let equipo = [];
 let puntos = [];
 
 function generarTabla(req, res) {
-  
   Http.open("GET", url);
   Http.send();
   Http.onreadystatechange = (e) => {
@@ -46,6 +66,8 @@ function generarTabla(req, res) {
       selection = selection.replace(/^\s+|\s+$|\s+(?=\s)/g, '');
       //para Lucas O´Neille
       selection = selection.replace(/&apos;/g, ' ');
+      //para independiente
+      selection = selection.replace(/\(1 races\), \(1 races\)/g, ' ');
 
       //corte mal implementado para cuando termina la tabla
       if (selection.includes("spandata-toggle")) {
@@ -83,18 +105,6 @@ function generarTabla(req, res) {
 
     }
   }
-
-  var respuesta = {
-    pos,
-    nombre,
-    equipo,
-    puntos
-  }
-  respuesta.pos = pos;
-  respuesta.nombre = nombre;
-  respuesta.equipo = equipo;
-  respuesta.puntos = puntos;
-  
 }
 
 var corsOptions = {
@@ -118,6 +128,19 @@ app.route('/api/datos').get((req, res) => {
     nombre,
     equipo,
     puntos
+  })
+  pos.length = 0;
+  nombre.length = 0;
+  equipo.length = 0;
+  puntos.length = 0;
+})
+
+//para rF2
+app.route('/api/datos/rF2').get((req, res) => {
+  res.send({
+    posrF2,
+    nombrerF2,
+    puntosrF2
   })
 })
 

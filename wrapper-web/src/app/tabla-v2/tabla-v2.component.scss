@@ -30,9 +30,7 @@
 
     #ilslogo{
       transform: skew(18deg) !important;
-      width: 10vh;
-      margin: -35px -6px 0 0;
-      padding: 15px;
+      width: 4em;
     }
     .nopadding {
       padding: 0 !important;
@@ -55,6 +53,17 @@
   font-family: 'Roboto', sans-serif !important;
   font-size: 30px !important;
   font-weight: bold;
+}
+
+#textoposiciones{
+  text-align: center;
+}
+#textoequipos{
+  font-style: italic;
+}
+
+#onelinetext{
+  white-space: nowrap;
 }
 
 tr
