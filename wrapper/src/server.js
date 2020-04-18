@@ -57,6 +57,8 @@ function generarTabla() {
       selection = selection.replace(/&apos;/g, ' ');
       //para independiente
       selection = selection.replace(/\(1 races\), \(1 races\)/g, ' ');
+      //para sanciones acomodar para 1 o mas de 2 digitos
+      selection = selection.replace(/<span class="badge badge-danger ml-2">Points Penalty: \d\d<\/span>/, ' ');
 
       //corte mal implementado para cuando termina la tabla
       if (selection.includes("spandata-toggle")) {
