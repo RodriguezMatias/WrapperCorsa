@@ -15,6 +15,11 @@ let posrF2 = [];
 let nombrerF2 = [];
 let puntosrF2 = [];
 
+function limpiardata(){
+   posrF2 = [];
+   nombrerF2 = [];
+   puntosrF2 = [];
+}
 //rF2 related START
 function generartablarF2(){
   'use strict';
@@ -129,6 +134,7 @@ app.route('/api/datos').get((req, res) => {
 
 //para rF2
  app.route('/api/datosrF2').get((req,res) => {
+  limpiardata();
   generartablarF2();
    pos = posrF2;
    nombre =  nombrerF2;
