@@ -2,71 +2,71 @@
   <div class="loader">Loading...</div>
 </div>
 <div class="container" *ngIf="!loading">
-    <div class="row">
-      <div class="col-md-2"></div>
-      <div class="col-md-8">
-        <h1>Tablas de campeonato:</h1>
-      </div>
-      <div class="col-md-2"></div>
+  <div class="row bottommargin">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <h1>Tablas de campeonato:</h1>
     </div>
-    
-    <!-- <div formGroupName="address">
-      <h3>Nuevo campeonato:(Mock)</h3>
-    
-      <label>
-        Simulador:
-        <input type="text" formControlName="street">
-      </label>
-    
-      <label>
-        Titulo:
-        <input type="text" formControlName="city">
-      </label>
-      
-      <label>
-        Descripcion:
-        <input type="text" formControlName="state">
-      </label>
-    
-      <label>
-        Link:
-        <input type="text" formControlName="zip">
-      </label>
-    </div> -->
-
-      <div class="row">
-          <div class="col-md-2"></div>
-          <div class="col-md-8">
-            <h2>Seleccione de la siguiente tabla</h2>
-            <input type="text" text-right maxLength="2" placeholder="Ingrese numero de carrera aqui" [(ngModel)]="numerocarrera">
-              <div class="card">
-                <h5 class="card-header">Gt3</h5>
-                <div class="card-body">
-                  <p class="card-text">http://vps1.ils.simracer.com.ar:8773/championship/fa23af05-4e84-450f-adf6-b3a8d7cd94d7</p>
-                  <a [routerLink]="['/tablav2', 'gt3' , numerocarrera]" routerLinkActive="router-link-active" class="btn btn-primary">Ir a la tabla</a>
-                  <!-- <a routerLink="/tablav2" routerLinkActive="router-link-active" class="btn btn-primary">Editar (mock)</a> -->
-                </div>
-              </div>  
-              <div class="card">
-                <h5 class="card-header">Gt4</h5>
-                <div class="card-body">
-                  <p class="card-text">http://vps1.ils.simracer.com.ar:8774/championship/3f78b789-b58e-4045-bb88-3fb495227068</p>
-                  <a [routerLink]="['/tablav2', 'gt4' , numerocarrera]" routerLinkActive="router-link-active" class="btn btn-primary">Ir a la tabla</a>
-                  <!-- <a routerLink="/tablav2" routerLinkActive="router-link-active" class="btn btn-primary">Editar (mock)</a> -->
-                </div>
-              </div> 
-
-              <div class="card">
-                <h5 class="card-header">Gt3 cup</h5>
-                <div class="card-body">
-                  <p class="card-text"> Se arma con el json del web2py</p>
-                  <a [routerLink]="['/tablav2', 'gt3cup' , numerocarrera]" routerLinkActive="router-link-active" class="btn btn-primary">Ir a la tabla</a>
-                  <!-- <a routerLink="/tablav2" routerLinkActive="router-link-active" class="btn btn-primary">Editar (mock)</a> -->
-                </div>
-              </div>                    
-          </div>
-          <div class="col-md-2"></div>
-      </div>
-    
+    <div class="col-md-3"></div>
   </div>
-  
+
+  <div class="row bottommargin">
+    <div class="col-md-4">
+      <h2>Fecha n°:</h2>
+        <input maxLength="2" class="inputData" (keyup)="onKey($event)">
+    </div>
+    <div class="col-md-4">
+      <h2>Circuito:</h2>
+        <input maxLength="15" class="inputData" (keyup)="onKey2($event)">
+
+    </div>
+    <div class="col-md-4">
+     <div class="row"><h2>Subtitulo de la tabla:</h2></div>
+     <div class="row inputData">{{datosCarrera}}</div>
+
+    </div>
+  </div>
+  <div class="row bottommargin">
+      <div class="col-md-4">
+        <div class="card">
+          <h5 class="card-header">Clase A - Pilotos</h5>
+          <div class="card-body">
+            <!-- <p class="card-text">http://vps1.ils.simracer.com.ar:8773/championship/fa23af05-4e84-450f-adf6-b3a8d7cd94d7</p> -->
+            <a [routerLink]="['/tablav2', 'clasea' , datosCarrera]" routerLinkActive="router-link-active"
+              class="btn btn-primary">Ir a la tabla</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <h5 class="card-header">Clase B</h5>
+          <div class="card-body">
+            <!-- <p class="card-text">http://vps1.ils.simracer.com.ar:8774/championship/3f78b789-b58e-4045-bb88-3fb495227068</p> -->
+            <a [routerLink]="['/tablav2', 'claseb' , datosCarrera]" routerLinkActive="router-link-active"
+              class="btn btn-primary">Ir a la tabla</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <h5 class="card-header">rFactor 2</h5>
+          <div class="card-body">
+            <!-- <p class="card-text"> Se arma con el json del web2py</p> -->
+            <a [routerLink]="['/tablav2', 'rf2' , datosCarrera]" routerLinkActive="router-link-active"
+              class="btn btn-primary">Ir a la tabla</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row bottommargin">
+      <div class="col-md-4">
+        <div class="card">
+          <h5 class="card-header">Clase A - Equipos</h5>
+          <div class="card-body">
+            <a [routerLink]="['/tablav2equipos', 'gt3' , datosCarrera]" routerLinkActive="router-link-active"
+              class="btn btn-primary">Ir a la tabla</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

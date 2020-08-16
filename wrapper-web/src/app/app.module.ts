@@ -16,6 +16,7 @@ import { CargarCampeonatoComponent } from './cargar-campeonato/cargar-campeonato
 import { HomeComponent } from './home/home.component';
 import { TablaV2Component } from './tabla-v2/tabla-v2.component';
 import { FormsModule } from '@angular/forms';
+import { TablaV2EquiposComponent } from './tabla-v2-equipos/tabla-v2-equipos.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { FormsModule } from '@angular/forms';
     TablaComponent,
     CargarCampeonatoComponent,
     HomeComponent,
+    TablaV2EquiposComponent,
     TablaV2Component
     
   ],

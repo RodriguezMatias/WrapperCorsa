@@ -4,11 +4,11 @@ import { ActivatedRoute } from '@angular/router';
 import htmlToImage from 'html-to-image';
 import { saveAsPng, saveAsJpeg } from 'save-html-as-image';
 @Component({
-  selector: 'app-tabla-v2',
-  templateUrl: './tabla-v2.component.html',
-  styleUrls: ['./tabla-v2.component.scss']
+  selector: 'app-tabla-v2-equipos',
+  templateUrl: './tabla-v2-equipos.component.html',
+  styleUrls: ['./tabla-v2-equipos.component.scss']
 })
-export class TablaV2Component implements OnInit {
+export class TablaV2EquiposComponent implements OnInit {
 
   constructor(private datosService : DatosService,private route: ActivatedRoute) { }
 
@@ -30,18 +30,8 @@ export class TablaV2Component implements OnInit {
     //clasea
     if(this.categoria == 'clasea'){
       this.url='http://vps1.ils.simracer.com.ar:8773/championship/fa23af05-4e84-450f-adf6-b3a8d7cd94d7';
-      this.datosService.getAllDatos(this.url).subscribe(val => this.datos = val);
+      this.datosService.getAllDatosEquipos(this.url).subscribe(val => this.datos = val);
     }
-    if(this.categoria == 'claseb'){
-    //claseb
-    this.url='http://vps1.ils.simracer.com.ar:8774/championship/3f78b789-b58e-4045-bb88-3fb495227068';
-    this.datosService.getAllDatos(this.url).subscribe(val => this.datos = val);
-  }
-  if(this.categoria == 'rf2'){
-    //rf2
-    this.datosService.getrF2Datos().subscribe(val => this.datos = val);
-  }
- 
   });
     
   }
