@@ -27,17 +27,11 @@ export class TablaV2Component implements OnInit {
        this.categoria = params['categoria'];
        this.numerofecha = params['numerofecha'];
       console.log(this.categoria);
-    //clasea
-    if(this.categoria == 'clasea'){
-      this.url='http://vps1.ils.simracer.com.ar:8773/championship/fa23af05-4e84-450f-adf6-b3a8d7cd94d7';
-      this.datosService.getAllDatos(this.url).subscribe(val => this.datos = val);
+  
+    if(this.categoria == 'clasea' || this.categoria == 'claseb' ){
+    this.datosService.getdatospilotos(this.categoria).subscribe(val => this.datos = val);
     }
-    if(this.categoria == 'claseb'){
-    //claseb
-    this.url='http://vps1.ils.simracer.com.ar:8774/championship/3f78b789-b58e-4045-bb88-3fb495227068';
-    this.datosService.getAllDatos(this.url).subscribe(val => this.datos = val);
-  }
-  if(this.categoria == 'rf2'){
+    if(this.categoria == 'rf2'){
     //rf2
     this.datosService.getrF2Datos().subscribe(val => this.datos = val);
   }

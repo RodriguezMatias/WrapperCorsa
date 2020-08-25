@@ -19,8 +19,8 @@ export class TablaV2EquiposComponent implements OnInit {
   public numerofecha ; 
   public loading :boolean;
 
-  ngOnInit(){
-
+  ngOnInit(){ 
+    
     this.loading = false;
     console.log(this.route);
     this.route.params.subscribe(params => {
@@ -28,10 +28,11 @@ export class TablaV2EquiposComponent implements OnInit {
        this.numerofecha = params['numerofecha'];
       console.log(this.categoria);
     //clasea
-    if(this.categoria == 'clasea'){
-      this.url='http://vps1.ils.simracer.com.ar:8773/championship/fa23af05-4e84-450f-adf6-b3a8d7cd94d7';
-      this.datosService.getAllDatosEquipos(this.url).subscribe(val => this.datos = val);
-    }
+    if(this.categoria == 'clasea' || this.categoria == 'claseb' ){
+      console.log("entro a peticion, categoria: ",this.categoria);
+      this.datosService.getdatosequipos(this.categoria).subscribe(val => this.datos = val);
+      console.log("this.datos",this.datos);
+      }
   });
     
   }

@@ -27,10 +27,10 @@ export class CargarCampeonatoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.datosService.getServerData().subscribe(val => this.serverData = val);
-    console.log('serverData',this.serverData);
-    this.loading=false;
-    console.log('serverData',this.loading);
+    // this.datosService.getServerData().subscribe(val => this.serverData = val);
+    // console.log('serverData',this.serverData);
+     this.loading=false;
+    // console.log('serverData',this.loading);
   }
 
   onKey(event: any) { // without type info

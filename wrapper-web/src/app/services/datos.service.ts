@@ -17,15 +17,14 @@ export interface ServerData{
 export class DatosService {
   constructor(private http: HttpClient) {}
 
-  getAllDatos(url:string): Observable<Datos> {
-    let params = new HttpParams().set("url",url); //Create new HttpParams
-    return this.http.get<Datos>('http://localhost:8000/api/datos',{params: params})
+  getdatospilotos(clase:string): Observable<Datos> {
+    let params = new HttpParams().set("clase",clase); //Create new HttpParams
+    return this.http.get<Datos>('http://localhost:8000/api/datospilotos',{params: params})
   }
-
   
-  getAllDatosEquipos(url:string): Observable<Datos> {
-    let params = new HttpParams().set("url",url); //Create new HttpParams
-    return this.http.get<Datos>('http://localhost:8000/api/datosEquipos',{params: params})
+  getdatosequipos(clase:string): Observable<Datos> {
+    let params = new HttpParams().set("clase",clase); //Create new HttpParams
+    return this.http.get<Datos>('http://localhost:8000/api/datosequipos',{params: params})
   }
   
   getrF2Datos(): Observable<Datos> {
