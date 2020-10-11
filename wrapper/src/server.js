@@ -76,7 +76,8 @@ app.route('/api/datosrF2').get((req,res) => {
 
 //finrF2
 
-
+let nroFecha;
+let circuito;
 let pos = [];
 let nombre = [];
 let equipo = [];
@@ -102,6 +103,8 @@ function generarTablaPilotos(filename){
     'use strict';
     let jsonData = require('./'+filename+'.json');
     var i = 0;
+    nroFecha = jsonData["nroFecha"];
+    circuito = jsonData["circuito"];
     while (jsonData["pos"][i] != null){
       pos.push(i+1);
       nombre.push(jsonData["driver"][i]);
@@ -131,6 +134,8 @@ app.route('/api/datospilotos').get((req, res) => {
      }
     
     res.send({
+      nroFecha,
+      circuito,
       pos,
       nombre,
       equipo,
@@ -161,6 +166,8 @@ function generarTablaEquipos(filename){
     'use strict';
     let jsonData = require('./'+filename+'.json');
     var i = 0;
+    nroFecha = jsonData["nroFecha"];
+    circuito = jsonData["circuito"];
     while (jsonData["pos"][i] != null){
       pos.push(i+1);
       equipo.push(jsonData["team"][i]);
@@ -183,6 +190,8 @@ app.route('/api/datosequipos').get((req, res) => {
         generarTablaEquipos("TuPack F3 Fixed Series Equipos");
     }    
     res.send({
+      nroFecha,
+      circuito,
       pos,
       equipo,
       puntos

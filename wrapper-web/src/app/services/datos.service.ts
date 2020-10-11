@@ -3,6 +3,8 @@ import { Observable } from 'rxjs'
 import { HttpClient, HttpParams } from '@angular/common/http'
 
 export interface Datos {
+  nroFecha;
+  circuito;
   pos : [];
   nombre: [];
   puntos: [];

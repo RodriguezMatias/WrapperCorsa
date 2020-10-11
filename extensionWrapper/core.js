@@ -1,14 +1,30 @@
 
-   var btn = document.createElement("BUTTON");  
-   btn.innerHTML = "Descargar Tabla";  
-   btn.onclick = function(){
+    var nroFecha = document.createElement("INPUT");
+    nroFecha.setAttribute("type", "text");
+    nroFecha.setAttribute("placeholder", "Nro Fecha");
+    var circuito = document.createElement("INPUT");
+    circuito.setAttribute("type", "text");
+    circuito.setAttribute("placeholder", "Circuito");
+    var btn = document.createElement("BUTTON");  
+    btn.innerHTML = "Descargar Tabla"; 
+    
+    document.querySelector("#drivers-tab").appendChild(nroFecha);     
+    document.querySelector("#drivers-tab").appendChild(circuito);   
+    document.querySelector("#drivers-tab").appendChild(btn);  
+
+    btn.onclick = function(){
 
     var equipos = {
         nombreCampeonato : "",
+        nroFecha : "",
+        circuito : "",
         pos : [],
         team : [],
         points : []
    }
+   
+   equipos.nroFecha = nroFecha.value;
+   equipos.circuito = circuito.value;
    
    //var cantidadEquipos = $("#teams > div > table > tbody > tr").length;
    var cantidadEquipos = document.querySelectorAll('#teams > div > table > tbody > tr').length;
@@ -33,11 +49,16 @@
    
    var pilotos = {
        nombreCampeonato : "",
+       nroFecha : "",
+       circuito : "",
        pos : [],
        driver : [],
        team : [],
        points : []
    }
+
+   pilotos.nroFecha = nroFecha.value;
+   pilotos.circuito = circuito.value;
    
    //var cantidadPilotos = $("#drivers > div > table > tbody > tr").length;
    var cantidadPilotos = document.querySelectorAll('#drivers > div > table > tbody > tr').length;
@@ -66,7 +87,8 @@
    };
   
 };
-    document.querySelector("#drivers-tab").appendChild(btn);          
+
+          
 
 
   

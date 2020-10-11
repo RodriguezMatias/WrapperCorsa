@@ -15,9 +15,10 @@ export class TablaV2Component implements OnInit {
   title = 'wrapper-web';
   datos : Datos;
   public url : string;
-  public categoria ;
-  public numerofecha ; 
+  public categoria;
   public loading :boolean;
+  public numeroFecha;
+  public numeroFecharF2;
 
   ngOnInit(){
 
@@ -25,19 +26,18 @@ export class TablaV2Component implements OnInit {
     console.log(this.route);
     this.route.params.subscribe(params => {
        this.categoria = params['categoria'];
-       this.numerofecha = params['numerofecha'];
-      console.log(this.categoria);
+       this.numeroFecharF2 = params['numerofecha'];
   
     if(this.categoria == 'clasea' || this.categoria == 'claseb' ){
     this.datosService.getdatospilotos(this.categoria).subscribe(val => this.datos = val);
+    
     }
     if(this.categoria == 'rf2'){
     //rf2
     this.datosService.getrF2Datos().subscribe(val => this.datos = val);
+    this.numeroFecha = this.numeroFecharF2;
   }
- 
   });
-    
   }
 
   takeScreenshot(){
