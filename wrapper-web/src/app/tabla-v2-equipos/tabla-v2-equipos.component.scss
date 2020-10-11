@@ -1,4 +1,14 @@
 
+.textonumero{
+  font-family:Azonix;
+}
+
+
+.textosubtitulo{
+  font-family:Biko;
+}
+
+
 #savebutton{
   margin: 2vh;
   vertical-align: middle;
@@ -18,12 +28,12 @@
 }
 
 #parallelogram {
-  width: 90%;
+  width: 81%;
   transform: skew(-18deg);
 }
 .paralelogramo{
   padding-top: 20px;
-  margin: 0 5% 20px 5%;
+  margin: 0 5% 20px 10%;
   .blanco{
     background: white;
     #categorialogo{

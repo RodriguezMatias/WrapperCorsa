@@ -18,7 +18,7 @@
 <div class="container">
   <div id="tablacompleta">
     <div id="fondotabla">
-  <div class="row paralelogramo" id="parallelogram">
+  <div class="row paralelogramo justify-content-center" id="parallelogram">
     <div class="col-md-4 blanco">
       <div class="col-md-1 nopadding">
         <img id="categorialogo" *ngIf="categoria == 'clasea'" src="../../assets/gt3logo.png">
@@ -32,21 +32,21 @@
       </div>
       <div class="row">
         <div class="col-md-10">
-          <h2 id="textotablaposiciones">{{numerofecha}}</h2>
+          <h2 id="textotablaposiciones" class="textosubtitulo" >{{numerofecha}}</h2>
         </div>
-        <div class="col-md-2 nopadding"><img id="ilslogo" src="../../assets/Blanco.png"></div>
+        <div class="col-md-2"><img id="ilslogo" src="../../assets/Blanco.png"></div>
       </div>
 
     </div>
   </div>
-  <div class="row">
-      <div class="col-md-10 offset-md-1">
+  <div class="row justify-content-center">
+      <div class="col-md-10">
         <table class="table borderless">
           <thead>
           </thead>
           <tbody id="texto">
             <tr *ngFor="let dato of datos.pos; index as i;"  id="onelinetext">
-              <td id="textoposiciones" *ngIf="datos.puntos[i] > 0"
+              <td id="textoposiciones" class="textonumero" *ngIf="datos.puntos[i] > 0"
                 >
                 {{datos.pos[i]}}
               </td>

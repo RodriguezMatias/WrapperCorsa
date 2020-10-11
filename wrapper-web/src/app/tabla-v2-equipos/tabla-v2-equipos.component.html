@@ -32,7 +32,7 @@
       </div>
       <div class="row">
         <div class="col-md-10">
-          <h2 id="textotablaposiciones">{{numerofecha}}</h2>
+          <h2 id="textotablaposiciones" class="textosubtitulo">{{numerofecha}}</h2>
         </div>
         <div class="col-md-2 nopadding"><img id="ilslogo" src="../../assets/Blanco.png"></div>
       </div>
@@ -46,7 +46,7 @@
           </thead>
           <tbody id="texto">
             <tr *ngFor="let dato of datos.pos; index as i;"  id="onelinetext">
-              <td id="textoposiciones" *ngIf="datos.puntos[i] > 0">
+              <td id="textoposiciones"  class="textonumero" *ngIf="datos.puntos[i] > 0">
                 {{datos.pos[i]}}
               </td>
               <td id="textoequipos" *ngIf="categoria == 'clasea' || categoria == 'claseb' && datos.puntos[i] > 0">{{datos.equipo[i]}}</td>

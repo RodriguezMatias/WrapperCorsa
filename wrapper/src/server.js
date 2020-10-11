@@ -101,9 +101,9 @@ function limpiarTablaPiloto(){
 function generarTablaPilotos(filename){
     'use strict';
     let jsonData = require('./'+filename+'.json');
-    var i = 1;
+    var i = 0;
     while (jsonData["pos"][i] != null){
-      pos.push(i);
+      pos.push(i+1);
       nombre.push(jsonData["driver"][i]);
       equipo.push(jsonData["team"][i]);
       puntos.push(jsonData["points"][i]);
@@ -160,9 +160,9 @@ function generarTablaEquipos(filename){
     limpiardata();
     'use strict';
     let jsonData = require('./'+filename+'.json');
-    var i = 1;
+    var i = 0;
     while (jsonData["pos"][i] != null){
-      pos.push(i);
+      pos.push(i+1);
       equipo.push(jsonData["team"][i]);
       puntos.push(jsonData["points"][i]);
       i++;
